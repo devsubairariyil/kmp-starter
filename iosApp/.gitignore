@@ -1,0 +1,13 @@
+# Keep the Xcode project and shared schemes in source control.
+# Ignore only generated products and machine-local UI state.
+
+.DS_Store
+build/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+*.moved-aside
+*.hmap
+*.ipa
+*.dSYM
+*.dSYM.zip

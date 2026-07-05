@@ -1,0 +1,40 @@
+openapi: 3.0.3
+info:
+  title: KMP Starter Sample API
+  description: Minimal public-safe OpenAPI document used only to demonstrate client generation.
+  version: 1.0.0
+servers:
+  - url: https://api.example.com
+    description: Example API server
+paths:
+  /health:
+    get:
+      operationId: getHealth
+      summary: Get service health
+      description: Returns a simple status payload that can be used to verify generated API clients.
+      tags:
+        - Health
+      responses:
+        "200":
+          description: Service status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthResponse"
+              example:
+                status: ok
+                version: 1.0.0
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      required:
+        - status
+        - version
+      properties:
+        status:
+          type: string
+          example: ok
+        version:
+          type: string
+          example: 1.0.0

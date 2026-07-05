@@ -1,0 +1,14 @@
+#!/bin/sh
+set -eu
+
+if [ "${SKIP_KMP_STARTER_HOOKS:-}" = "1" ]; then
+  echo "Skipping KmpStarter pre-commit hook because SKIP_KMP_STARTER_HOOKS=1"
+  exit 0
+fi
+
+repo_root="$(git rev-parse --show-toplevel)"
+cd "$repo_root"
+
+echo "Running pre-commit checks..."
+./gradlew spotlessCheck detekt ktlintCheck
+
